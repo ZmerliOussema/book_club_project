@@ -31,25 +31,25 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@NotBlank(message = "User Name is required!")
-	@Size(min = 3, message = "Username must be at least 3 characters")
+	@NotBlank(message = " is required!")
+	@Size(min = 2, message = " must be at least 2 characters")
 	private String firstname;
 	
-	@NotBlank(message = "User Name is required!")
-	@Size(min = 3, message = "Username must be at least 3 characters")
+	@NotBlank(message = " is required!")
+	@Size(min = 2, message = " must be at least 2 characters")
 	private String lastname;
 
-	@NotBlank(message = "Email is required!")
+	@NotBlank(message = " is required!")
 	@Email(message = "Please enter a valid email!")
 	private String email;
 
-	@NotBlank(message = "Password is required!")
-	@Size(min = 8, max = 128, message = "Password must be between 8 and 128 characters")
+	@NotBlank(message = " is required!")
+	@Size(min = 8, max = 128, message = " must be at least 8 characters")
 	private String password;
 
 	@Transient // No save in database
-	@NotBlank(message = "Confirm Password is required!")
-	@Size(min = 8, max = 128, message = "Confirm Password must be between 8 and 128 characters")
+	@NotBlank(message = " is required!")
+	@Size(min = 8, max = 128, message = " must be at least 8 characters")
 	private String confirm;
 
 	@Column(updatable = false)

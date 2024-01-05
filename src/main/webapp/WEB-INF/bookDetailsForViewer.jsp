@@ -60,8 +60,8 @@
 			</p>
 		</div>
 		<div>
-			<h1>Users Who Like This Book</h1>
-			<div class="d-flex justify-content-between">
+			<h1>Users Who Like This Book: </h1>
+			<div>
 				<c:forEach items="${book.readers}" var="reader">
 					<ul>
 						<li><c:out value="${reader.firstname}"></c:out> <c:out

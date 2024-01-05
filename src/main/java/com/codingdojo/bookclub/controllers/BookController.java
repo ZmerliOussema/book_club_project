@@ -1,5 +1,6 @@
 package com.codingdojo.bookclub.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,9 +68,17 @@ public class BookController {
 			} else {
 				// Grab the logged in user Object
 				User currentUser = userService.findById(userId);
-				// Set the User id inside the car Object
+				// Set the User id inside the book Object
 				book.setUser(currentUser);
-
+				
+				// Automatically add the current user to the list of readers
+	            List<User> readers = book.getReaders();
+	            if (readers == null) {
+	                readers = new ArrayList<>();
+	            }
+	            readers.add(currentUser);
+	            book.setReaders(readers);
+	            
 				Book newBook = bookServ.createBook(book);
 
 				return "redirect:/books";
@@ -120,6 +129,14 @@ public class BookController {
 				// Set the User id inside the car Object
 				book.setUser(currentUser);
 				
+				// Automatically add the current user to the list of readers
+	            List<User> readers = book.getReaders();
+	            if (readers == null) {
+	                readers = new ArrayList<>();
+	            }
+	            readers.add(currentUser);
+	            book.setReaders(readers);
+	            
 				bookServ.updateBook(book);
 				return "redirect:/books";
 			}

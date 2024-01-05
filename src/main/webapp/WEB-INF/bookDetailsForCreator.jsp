@@ -70,7 +70,7 @@
 			</form>
 		</div>
 		<div>
-			<h1>Users Who Like This Book</h1>
+			<h1>Users Who Like This Book: </h1>
 			<c:forEach items="${book.readers }" var="reader">
 				<ul>
 					<li><c:out value="${reader.firstname}"></c:out> <c:out
